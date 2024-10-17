@@ -1,3 +1,9 @@
+//! [![build-badge](https://github.com/30bit/fatter/actions/workflows/ci.yml/badge.svg)](https://github.com/30bit/fatter/actions)
+//! [![docs-badge](https://github.com/30bit/fatter/actions/workflows/docs.yml/badge.svg)](https://30bit.github.io/fatter/)
+//! [![examples-badge](https://img.shields.io/badge/Examples-fatter-blue?style=flat&logo=github)](https://github.com/30bit/fatter/tree/master/examples)
+//!
+//! Hackable ergonomic generic Error type. WIP
+
 #![cfg_attr(not(feature = "std"), no_std)]
 #![cfg_attr(doc, feature(doc_cfg))]
 

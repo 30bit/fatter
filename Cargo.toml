@@ -1,6 +1,6 @@
 [package]
 name = "fatter"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Artur Helmanau <m30bit@gmail.com>"]
 categories = ["rust-patterns", "no-std"]
 description = "Hackable ergonomic generic Error type"

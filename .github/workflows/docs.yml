@@ -27,15 +27,13 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Build docs
         run: cargo doc --all-features
-      - name: Add redirect
-        run: echo '<meta http-equiv="refresh" content="0;url=index.html">' > target/doc/index.html
       - name: Remove lock file
         run: rm target/doc/.lock
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: target/doc
-          
+
   deploy:
     name: Deploy
     environment:

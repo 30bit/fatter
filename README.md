@@ -1,13 +1,12 @@
 # Fatter
 
-![docs-badge](https://img.shields.io/badge/docs-fatter-blue?style=flat&logo=docsdotrs&link=https%3A%2F%2F30bit.github.io%2Ffatter%2Findex.html)
-![examples-badge](https://img.shields.io/badge/examples-fatter-fedcba?style=flat&logo=github&link=https%3A%2F%2Fgithub.com%2F30bit%2Ffatter%2Ftree%2Fmaster%2Fexamples)
-
+[![build-badge](https://github.com/30bit/fatter/actions/workflows/ci.yml/badge.svg)](https://github.com/30bit/fatter/actions)
+[![docs-badge](https://github.com/30bit/fatter/actions/workflows/docs.yml/badge.svg)](https://30bit.github.io/fatter/)
+[![examples-badge](https://img.shields.io/badge/Examples-fatter-blue?style=flat&logo=github)](https://github.com/30bit/fatter/tree/master/examples)
 
 ## About
 
 Hackable ergonomic generic Error type. WIP
-
 
 ## License
 
