@@ -1,10 +1,10 @@
 [package]
 name = "fatter"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Artur Helmanau <m30bit@gmail.com>"]
 categories = ["rust-patterns", "no-std"]
 description = "Hackable ergonomic generic Error type"
-documentation = "https://30bit.github.io/fatter/index.html"
+documentation = "https://30bit.github.io/fatter/latest"
 edition = "2021"
 keywords = ["error", "error-handling"]
 license = "MIT OR Apache-2.0"

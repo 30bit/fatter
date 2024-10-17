@@ -1,7 +1,7 @@
 # Fatter
 
 [![build-badge](https://github.com/30bit/fatter/actions/workflows/ci.yml/badge.svg)](https://github.com/30bit/fatter/actions)
-[![docs-badge](https://github.com/30bit/fatter/actions/workflows/docs.yml/badge.svg)](https://30bit.github.io/fatter/)
+[![docs-badge](https://github.com/30bit/fatter/actions/workflows/docs.yml/badge.svg)](https://30bit.github.io/fatter/latest)
 [![examples-badge](https://img.shields.io/badge/Examples-fatter-blue?style=flat&logo=github)](https://github.com/30bit/fatter/tree/master/examples)
 
 ## About
