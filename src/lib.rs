@@ -37,7 +37,7 @@ pub trait GlobalManager<C: Chain, X: Tags>: Manager<C, X> + Sized + Send + Sync 
 }
 
 pub trait Manager<C: Chain, X: Tags> {
-    fn derive<E: Any + Send + Sync + ?Sized + 'static>(&self, err: &E) -> X;
+    fn derive<E: Any + Send + Sync + 'static>(&self, err: &E) -> X;
 }
 
 impl<C: Chain, X: Tags, D: Manager<C, X>> Manager<C, X> for &D
@@ -45,7 +45,7 @@ where
     D: Manager<C, X> + ?Sized,
 {
     #[inline]
-    fn derive<E: Any + Send + Sync + ?Sized + 'static>(&self, err: &E) -> X {
+    fn derive<E: Any + Send + Sync + 'static>(&self, err: &E) -> X {
         D::derive(self, err)
     }
 }
