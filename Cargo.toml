@@ -1,0 +1,24 @@
+[package]
+name = "fatter"
+version = "0.1.0"
+authors = ["Artur Helmanau <m30bit@gmail.com>"]
+categories = ["rust-patterns", "no-std"]
+description = "Hackable ergonomic generic Error type"
+documentation = "https://30bit.github.io/fatter/index.html"
+edition = "2021"
+keywords = ["error", "error-handling"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/30bit/fatter"
+rust-version = "1.81"
+
+[features]
+std = ["alloc", "anyhow?/std", "bitflags?/std"]
+alloc = []
+
+[dependencies]
+anyhow = { version = "1", default-features = false, optional = true }
+bitflags = { version = "2", default-features = false, optional = true }
+
+[dev-dependencies]
+fatter = { path = ".", features = ["std", "anyhow", "bitflags"] }
+thiserror = "1"

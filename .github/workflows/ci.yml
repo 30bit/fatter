@@ -1,0 +1,51 @@
+name: Rust
+
+on:
+  push:
+    branches: ['master']
+  pull_request: 
+    branches: ['master']
+
+permissions:
+  contents: write
+
+env:
+  RUSTFLAGS: -Dwarnings
+  RUSTDOCFLAGS: -Dbroken_intra_doc_links
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+      - run: cargo check --all-targets --all-features
+
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: clippy, rustc-dev
+      - run: cargo clippy --all-targets --all-features -- -Dclippy::pedantic
+
+  doc:
+    name: Doc
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+      - run: cargo doc --all-features --document-private-items
+
+  fmt:
+    name: Fmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: rustfmt, rustc-dev
+      - run: cargo fmt --all -- --check
