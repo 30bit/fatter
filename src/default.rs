@@ -41,6 +41,48 @@ impl Chain for NoChain {
     }
 }
 
+impl<C: Chain> Chain for Option<C> {
+    fn new<E: StdError + Send + Sync + 'static>(err: E) -> Self {
+        Some(C::new(err))
+    }
+
+    fn push<E: StdError + Send + Sync + 'static>(self, err: E) -> Self {
+        if let Some(inner) = self {
+            Some(inner.push(err))
+        } else {
+            Self::new(err)
+        }
+    }
+
+    fn append(self, err: Self) -> Self {
+        match (self, err) {
+            (None, None) => None,
+            (None, err @ Some(_)) | (err @ Some(_), None) => err,
+            (Some(lhs), Some(rhs)) => Some(lhs.append(rhs)),
+        }
+    }
+
+    fn iter(&self) -> impl Iterator<Item = &'_ (dyn StdError + 'static)> {
+        self.iter().flat_map(C::iter)
+    }
+
+    fn debug_fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        if let Some(inner) = &self {
+            inner.debug_fmt(f)
+        } else {
+            Ok(())
+        }
+    }
+
+    fn display_fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        if let Some(inner) = &self {
+            inner.display_fmt(f)
+        } else {
+            Ok(())
+        }
+    }
+}
+
 #[derive(Copy, Clone)]
 pub struct NoManager;
 
